@@ -1,0 +1,21 @@
+<!-- Specify which template to extend -->
+{% extends 'base.html' %}
+<style>
+
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color: #96D4D4;
+}
+</style>
+
+<!-- Add content to the content block in the main template -->
+{% block content %}
+<form action="/flights/search/" method="post">
+    <!-- Create a csrf token -->
+    {% csrf_token %}
+    <!-- Output the form -->
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+{% endblock %}

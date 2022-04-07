@@ -11,6 +11,7 @@ def index(request):
     return render(request, 'airports/index.html', context)
 
 
+
 def airport_info(request, airport_code):
     airport = Airport.objects.get(airport_code=airport_code)
     context = {'airport': airport}
