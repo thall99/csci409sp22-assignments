@@ -1,13 +1,16 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Reservation
 from .forms import TicketForm
 
+@login_required
 def index(request):
     # Nothing to do here
     form = TicketForm()
     return render(request, 'tickets/index.html', {'form': form})
 
+@login_required
 def search(request):
     form = TicketForm(request.POST)
     if form.is_valid():
